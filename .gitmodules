@@ -1,0 +1,3 @@
+[submodule "kutilpy"]
+	path = kutilpy
+	url = https://github.com/kigawa01/kutilpy.git
