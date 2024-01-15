@@ -1,7 +1,6 @@
 class Client:
-    def __init__(self):
-        from repobrowse.window import LoginWindow
-        LoginWindow(self)
+    def is_login(self):
+        return False
 
     def login(self):
         pass

@@ -1,21 +1,14 @@
 from kutilpy.kutil.tk.element import WindowBase
-from repobrowse import main
 from repobrowse.client import Client
 
 
 class MainWindow(WindowBase):
     def __init__(self):
         super().__init__()
-        self.frame().pack()
         self.client = Client()
-        window = main.force_window
-        if len(window) != 0:
-            window[-1].focus_force()
-
-    def on_focus(self, event):
-        window = main.force_window
-        if len(window) != 0:
-            window[-1].focus_force()
+        self.frame().pack()
+        if not self.client.is_login():
+            self.child_window(LoginWindow(self.client))
 
 
 class LoginWindow(WindowBase):
@@ -23,7 +16,4 @@ class LoginWindow(WindowBase):
         super().__init__()
         self.client = client
         self.button("ログイン").pack()
-        main.force_window.append(self)
-
-    def on_pre_destroy(self):
-        main.force_window.remove(self)
+        self.is_force_focus(True)
