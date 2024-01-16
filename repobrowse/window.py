@@ -15,5 +15,5 @@ class LoginWindow(WindowBase):
     def __init__(self, client: Client):
         super().__init__()
         self.client = client
-        self.button("ログイン").pack()
+        self.button("ログイン").on_click(client.login).pack()
         self.is_force_focus(True)
