@@ -9,6 +9,7 @@ from kutilpy.kutil.jsons.jsons import Json
 @dataclass
 class StorageJson:
     token: str = ""
+    user: str = ""
 
 
 class Storage:
