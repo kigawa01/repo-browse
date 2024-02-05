@@ -9,9 +9,12 @@ class Main:
 
     def __init__(self):
         with ThreadPoolExecutor() as executor:
+            # config 関係
             storage = Storage()
+            # web api関係
             github = Github(storage)
             from repobrowse.window import MainWindow
+            # window関係
             MainWindow(Context(github, executor)).mainloop()
 
 

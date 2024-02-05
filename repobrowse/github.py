@@ -4,7 +4,7 @@ from typing import Callable
 from kutilpy.kutil.urls.http_request import ContentType, BearerAuthorization
 from kutilpy.kutil.urls.url import URL
 from repobrowse.response import Repository
-from repobrowse.storage import Storage
+from repobrowse.storage import Storage, StorageJson
 
 
 class Github:
@@ -32,6 +32,9 @@ class Github:
         result = self.storage.save(current)
         self.try_login()
         return result
+
+    def logout(self):
+        self.storage.save(StorageJson("", ""))
 
     def repositories(self) -> list[Repository]:
         config = self.storage.load()

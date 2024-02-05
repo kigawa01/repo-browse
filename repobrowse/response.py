@@ -5,6 +5,8 @@ from dataclasses import dataclass
 class LoginDeviceCode:
     pass
 
+
 @dataclass
 class Repository:
-    pass
+    name: str
+    html_url: str
